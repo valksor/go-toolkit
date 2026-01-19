@@ -128,12 +128,14 @@ func GitCreateBranch(t *testing.T, dir, branch string) {
 // GitCurrentBranch returns the current branch name.
 func GitCurrentBranch(t *testing.T, dir string) string {
 	t.Helper()
+
 	return RunGit(t, dir, "rev-parse", "--abbrev-ref", "HEAD")
 }
 
 // GitStatus returns the git status output.
 func GitStatus(t *testing.T, dir string) string {
 	t.Helper()
+
 	return RunGit(t, dir, "status", "--porcelain")
 }
 

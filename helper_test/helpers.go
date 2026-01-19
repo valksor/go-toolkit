@@ -168,6 +168,7 @@ func AssertErrorContains(t *testing.T, err error, substr string) {
 	t.Helper()
 	if err == nil {
 		t.Errorf("expected error containing %q, got nil", substr)
+
 		return
 	}
 	if !strings.Contains(err.Error(), substr) {
@@ -216,6 +217,7 @@ func AssertNotContains[T comparable](t *testing.T, slice []T, item T) {
 	for _, s := range slice {
 		if s == item {
 			t.Errorf("slice should not contain %v", item)
+
 			return
 		}
 	}
