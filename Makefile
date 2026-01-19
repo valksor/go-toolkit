@@ -21,6 +21,7 @@ quality: ## Run linter and security checks
 	${MAKE} fmt
 	golangci-lint run ./... --fix
 	govulncheck ./...
+	${MAKE} check-alias
 
 fmt: ## Format code with go fmt, goimports, and gofumpt
 	go fmt ./...
@@ -36,3 +37,11 @@ deps: ## Download dependencies
 
 clean: ## Clean coverage artifacts
 	rm -rf .coverage covprofile
+
+check-alias:
+	@alias_issues="$$(./.github/alias.sh || true)"; \
+	if [ -n "$$alias_issues" ]; then \
+		echo "❌ Unnecessary import alias detected:"; \
+		echo "$$alias_issues"; \
+		exit 1; \
+	fi
