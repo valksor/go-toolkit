@@ -38,6 +38,8 @@ go get github.com/valksor/go-toolkit
 - **[errors](packages/errors.md)** - Error handling and wrapping utilities
 - **[output](packages/output.md)** - Output processing utilities including deduplicating writer
 - **[paths](packages/paths.md)** - File path manipulation utilities
+- **[retry](packages/retry.md)** - Retry operations with exponential backoff and jitter
+- **[slug](packages/slug.md)** - Convert text to URL-safe slugs
 - **[version](packages/version.md)** - Build version information helpers
 
 ## Quick Links
@@ -100,6 +102,31 @@ config := minify.Config{
 minify.ProcessBundles(config)
 ```
 
+### retry
+
+The `retry` package provides retry logic with exponential backoff:
+
+```go
+import "github.com/valksor/go-toolkit/retry"
+import "context"
+
+config := retry.DefaultConfig()
+err := config.Do(ctx, func() error {
+    return callExternalAPI()
+})
+```
+
+### slug
+
+The `slug` package converts text to URL-safe slugs:
+
+```go
+import "github.com/valksor/go-toolkit/slug"
+
+s := slug.Slugify("Add user authentication", 50)
+// Returns: "add-user-authentication"
+```
+
 ## Documentation
 
 - [Browse all packages](#packages)
@@ -112,3 +139,4 @@ minify.ProcessBundles(config)
 - [GitHub Repository](https://github.com/valksor/go-toolkit)
 - [pkg.go.dev](https://pkg.go.dev/github.com/valksor/go-toolkit)
 - [Report Issues](https://github.com/valksor/go-toolkit/issues)
+- [Documentation Site](https://toolkit.valksor.com/docs)

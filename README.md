@@ -2,33 +2,20 @@
 
 A collection of Go utilities and packages for Valksor projects.
 
-## Packages
+## What is go-toolkit?
 
-### Configuration & Environment
+go-toolkit provides a comprehensive set of reusable Go packages designed to accelerate development across Valksor projects. Each package is focused, well-tested, and ready for production use.
 
-- **cfg**: Configuration loading, saving, and merging utilities (YAML, JSON)
-- **env**: Environment variable expansion and layered environment management
-- **envconfig**: Struct-based environment variable loading with validation
-- **project**: Project detection and context management
+## When to use it
 
-### CLI & Display
-
-- **cli**: Cobra CLI helpers and common patterns
-- **display**: Color and formatting utilities for terminal output
-- **log**: Structured logging helpers
-
-### Build & Template Tools
-
-- **qtcwrap**: Wrapper for QuickTemplate (qtc) compiler
-- **minify**: JavaScript and CSS minification with content-based hashing
-
-### Utilities
-
-- **cache**: Thread-safe in-memory TTL cache with automatic expiration
-- **errors**: Error handling and wrapping utilities
-- **output**: Output processing utilities including deduplicating writer
-- **paths**: File path manipulation utilities
-- **version**: Build version information helpers
+You're building a Go project and need:
+- Configuration management (YAML/JSON, environment variables)
+- CLI helpers (Cobra-based patterns)
+- Terminal display formatting
+- Build utilities (template compilation, asset minification)
+- Common utilities (caching, error handling, output processing)
+- Retry logic with exponential backoff
+- URL-safe slug generation
 
 ## Installation
 
@@ -36,97 +23,47 @@ A collection of Go utilities and packages for Valksor projects.
 go get github.com/valksor/go-toolkit
 ```
 
-## Usage Examples
+## Packages
 
-### Environment Variable Expansion (env package)
+### Configuration & Environment
 
-```go
-import "github.com/valksor/go-toolkit/env"
+| Package | Description | Docs |
+|---------|-------------|------|
+| **cfg** | Configuration loading, saving, and merging (YAML, JSON) | [docs](https://toolkit.valksor.com/docs/#/packages/cfg) |
+| **env** | Environment variable expansion and layered environments | [docs](https://toolkit.valksor.com/docs/#/packages/env) |
+| **envconfig** | Struct-based environment variable loading with validation | [docs](https://toolkit.valksor.com/docs/#/packages/envconfig) |
+| **project** | Project detection and context management | [docs](https://toolkit.valksor.com/docs/#/packages/project) |
 
-expanded := env.ExpandEnv("${HOME}/.config")
-```
+### CLI & Display
 
-### Struct-Based Configuration (envconfig package)
+| Package | Description | Docs |
+|---------|-------------|------|
+| **cli** | Cobra CLI helpers and common patterns | [docs](https://toolkit.valksor.com/docs/#/packages/cli) |
+| **display** | Color and formatting utilities for terminal output | [docs](https://toolkit.valksor.com/docs/#/packages/display) |
+| **log** | Structured logging helpers | [docs](https://toolkit.valksor.com/docs/#/packages/log) |
 
-```go
-import "github.com/valksor/go-toolkit/envconfig"
+### Build & Template Tools
 
-type Config struct {
-    Port     int    `required:"true"`
-    Database string `required:"true"`
-    Debug    bool   `env:"DEBUG"`
-}
+| Package | Description | Docs |
+|---------|-------------|------|
+| **qtcwrap** | Wrapper for QuickTemplate (qtc) compiler | [docs](https://toolkit.valksor.com/docs/#/packages/qtcwrap) |
+| **minify** | JavaScript and CSS minification with content-based hashing | [docs](https://toolkit.valksor.com/docs/#/packages/minify) |
 
-config := &Config{}
-envMaps := []map[string]string{
-    envconfig.ReadDotenvBytes(sharedEnv),
-    envconfig.GetEnvs(),
-}
-merged := envconfig.MergeEnvMaps(envMaps...)
-err := envconfig.FillStructFromEnv("", reflect.ValueOf(config).Elem(), merged)
-```
+### Utilities
 
-### QuickTemplate Compilation (qtcwrap package)
+| Package | Description | Docs |
+|---------|-------------|------|
+| **cache** | Thread-safe in-memory TTL cache with automatic expiration | [docs](https://toolkit.valksor.com/docs/#/packages/cache) |
+| **errors** | Error handling and wrapping utilities | [docs](https://toolkit.valksor.com/docs/#/packages/errors) |
+| **output** | Output processing utilities including deduplicating writer | [docs](https://toolkit.valksor.com/docs/#/packages/output) |
+| **paths** | File path manipulation utilities | [docs](https://toolkit.valksor.com/docs/#/packages/paths) |
+| **retry** | Retry operations with exponential backoff and jitter | [docs](https://toolkit.valksor.com/docs/#/packages/retry) |
+| **slug** | Convert text to URL-safe slugs | [docs](https://toolkit.valksor.com/docs/#/packages/slug) |
+| **version** | Build version information helpers | [docs](https://toolkit.valksor.com/docs/#/packages/version) |
 
-```go
-import "github.com/valksor/go-toolkit/qtcwrap"
+## Documentation
 
-config := qtcwrap.Config{
-    Dir:              "templates",
-    SkipLineComments: true,
-    Ext:              ".qtpl",
-}
-qtcwrap.WithConfig(config)
-```
-
-### Asset Minification (minify package)
-
-```go
-import "github.com/valksor/go-toolkit/minify"
-
-config := minify.Config{
-    BundlesFile: "bundles.json",
-    OutputDir:   "./assets/static",
-}
-minify.ProcessBundles(config)
-```
-
-### In-Memory Cache (cache package)
-
-```go
-import "github.com/valksor/go-toolkit/cache"
-import "time"
-
-// Create a new cache
-c := cache.New()
-
-// Store a value with 5-minute TTL
-c.Set("key", data, 5*time.Minute)
-
-// Retrieve a value
-if val, ok := c.Get("key"); ok {
-    // Use val (type assert to expected type)
-}
-
-// Start background cleanup scheduler (optional)
-stop := c.StartCleanupScheduler(1 * time.Minute)
-defer close(stop)
-```
-
-### Deduplicating Output Writer (output package)
-
-```go
-import "github.com/valksor/go-toolkit/output"
-
-// Wrap any io.Writer to suppress consecutive duplicate lines
-w := output.NewDeduplicatingWriter(os.Stdout)
-w.Write([]byte("Processing...\n"))
-w.Write([]byte("Processing...\n"))  // This line will be suppressed
-w.Write([]byte("Done!\n"))          // This line will be written
-
-// Remember to flush when done
-w.Flush()
-```
+Full documentation available at [toolkit.valksor.com/docs](https://toolkit.valksor.com/docs)
 
 ## Development
 
@@ -146,10 +83,6 @@ make fmt
 # Clean dependencies
 make tidy
 ```
-
-## Dependencies
-
-See [go.mod](go.mod) for the complete list of dependencies.
 
 ## License
 

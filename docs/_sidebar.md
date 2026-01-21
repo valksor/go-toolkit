@@ -16,6 +16,8 @@
   - [paths](packages/paths.md)
   - [project](packages/project.md)
   - [qtcwrap](packages/qtcwrap.md)
+  - [retry](packages/retry.md)
+  - [slug](packages/slug.md)
   - [version](packages/version.md)
 
 - Legal
