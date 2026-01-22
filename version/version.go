@@ -32,7 +32,7 @@ var (
 //	  Built:  2024-01-15T12:00:00Z
 //	  Go:     go1.21.5
 func Info(appName string) string {
-	return fmt.Sprintf("%s %s\n  Commit: %s\n  Built:  %s\n  Go:     %s",
+	return fmt.Sprintf("%s %s\n  Commit: %s\n  Built:  %s\n  Go:     %s\n  by Valksor",
 		appName, Version, Commit, BuildTime, runtime.Version())
 }
 
