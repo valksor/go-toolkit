@@ -6,6 +6,7 @@
   - [cache](packages/cache.md)
   - [cfg](packages/cfg.md)
   - [cli](packages/cli.md)
+  - [cli/disambiguate](packages/disambiguate.md)
   - [display](packages/display.md)
   - [env](packages/env.md)
   - [envconfig](packages/envconfig.md)

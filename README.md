@@ -39,6 +39,7 @@ go get github.com/valksor/go-toolkit
 | Package | Description | Docs |
 |---------|-------------|------|
 | **cli** | Cobra CLI helpers and common patterns | [docs](https://toolkit.valksor.com/docs/#/packages/cli) |
+| **cli/disambiguate** | Symfony-style command shortcuts (`c:v` → `config validate`) | [docs](https://toolkit.valksor.com/docs/#/packages/disambiguate) |
 | **display** | Color and formatting utilities for terminal output | [docs](https://toolkit.valksor.com/docs/#/packages/display) |
 | **log** | Structured logging helpers | [docs](https://toolkit.valksor.com/docs/#/packages/log) |
 

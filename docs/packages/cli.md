@@ -57,6 +57,7 @@ func Execute() {
 
 ## See Also
 
+- [cli/disambiguate](packages/disambiguate.md) - Symfony-style command shortcuts and prefix matching
 - [Cobra Documentation](https://github.com/spf13/cobra)
 - [display](packages/display.md) - Terminal color and formatting utilities
 - [log](packages/log.md) - Structured logging helpers
