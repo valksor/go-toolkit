@@ -29,42 +29,42 @@ go get github.com/valksor/go-toolkit
 
 | Package | Description | Docs |
 |---------|-------------|------|
-| **cfg** | Configuration loading, saving, and merging (YAML, JSON) | [docs](https://toolkit.valksor.com/docs/#/packages/cfg) |
-| **env** | Environment variable expansion and layered environments | [docs](https://toolkit.valksor.com/docs/#/packages/env) |
-| **envconfig** | Struct-based environment variable loading with validation | [docs](https://toolkit.valksor.com/docs/#/packages/envconfig) |
-| **project** | Project detection and context management | [docs](https://toolkit.valksor.com/docs/#/packages/project) |
+| **cfg** | Configuration loading, saving, and merging (YAML, JSON) | [docs](https://valksor.com/docs/go-toolkit/#/packages/cfg) |
+| **env** | Environment variable expansion and layered environments | [docs](https://valksor.com/docs/go-toolkit/#/packages/env) |
+| **envconfig** | Struct-based environment variable loading with validation | [docs](https://valksor.com/docs/go-toolkit/#/packages/envconfig) |
+| **project** | Project detection and context management | [docs](https://valksor.com/docs/go-toolkit/#/packages/project) |
 
 ### CLI & Display
 
 | Package | Description | Docs |
 |---------|-------------|------|
-| **cli** | Cobra CLI helpers and common patterns | [docs](https://toolkit.valksor.com/docs/#/packages/cli) |
-| **cli/disambiguate** | Symfony-style command shortcuts (`c:v` → `config validate`) | [docs](https://toolkit.valksor.com/docs/#/packages/disambiguate) |
-| **display** | Color and formatting utilities for terminal output | [docs](https://toolkit.valksor.com/docs/#/packages/display) |
-| **log** | Structured logging helpers | [docs](https://toolkit.valksor.com/docs/#/packages/log) |
+| **cli** | Cobra CLI helpers and common patterns | [docs](https://valksor.com/docs/go-toolkit/#/packages/cli) |
+| **cli/disambiguate** | Symfony-style command shortcuts (`c:v` → `config validate`) | [docs](https://valksor.com/docs/go-toolkit/#/packages/disambiguate) |
+| **display** | Color and formatting utilities for terminal output | [docs](https://valksor.com/docs/go-toolkit/#/packages/display) |
+| **log** | Structured logging helpers | [docs](https://valksor.com/docs/go-toolkit/#/packages/log) |
 
 ### Build & Template Tools
 
 | Package | Description | Docs |
 |---------|-------------|------|
-| **qtcwrap** | Wrapper for QuickTemplate (qtc) compiler | [docs](https://toolkit.valksor.com/docs/#/packages/qtcwrap) |
-| **minify** | JavaScript and CSS minification with content-based hashing | [docs](https://toolkit.valksor.com/docs/#/packages/minify) |
+| **qtcwrap** | Wrapper for QuickTemplate (qtc) compiler | [docs](https://valksor.com/docs/go-toolkit/#/packages/qtcwrap) |
+| **minify** | JavaScript and CSS minification with content-based hashing | [docs](https://valksor.com/docs/go-toolkit/#/packages/minify) |
 
 ### Utilities
 
 | Package | Description | Docs |
 |---------|-------------|------|
-| **cache** | Thread-safe in-memory TTL cache with automatic expiration | [docs](https://toolkit.valksor.com/docs/#/packages/cache) |
-| **errors** | Error handling and wrapping utilities | [docs](https://toolkit.valksor.com/docs/#/packages/errors) |
-| **output** | Output processing utilities including deduplicating writer | [docs](https://toolkit.valksor.com/docs/#/packages/output) |
-| **paths** | File path manipulation utilities | [docs](https://toolkit.valksor.com/docs/#/packages/paths) |
-| **retry** | Retry operations with exponential backoff and jitter | [docs](https://toolkit.valksor.com/docs/#/packages/retry) |
-| **slug** | Convert text to URL-safe slugs | [docs](https://toolkit.valksor.com/docs/#/packages/slug) |
-| **version** | Build version information helpers | [docs](https://toolkit.valksor.com/docs/#/packages/version) |
+| **cache** | Thread-safe in-memory TTL cache with automatic expiration | [docs](https://valksor.com/docs/go-toolkit/#/packages/cache) |
+| **errors** | Error handling and wrapping utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/errors) |
+| **output** | Output processing utilities including deduplicating writer | [docs](https://valksor.com/docs/go-toolkit/#/packages/output) |
+| **paths** | File path manipulation utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/paths) |
+| **retry** | Retry operations with exponential backoff and jitter | [docs](https://valksor.com/docs/go-toolkit/#/packages/retry) |
+| **slug** | Convert text to URL-safe slugs | [docs](https://valksor.com/docs/go-toolkit/#/packages/slug) |
+| **version** | Build version information helpers | [docs](https://valksor.com/docs/go-toolkit/#/packages/version) |
 
 ## Documentation
 
-Full documentation available at [toolkit.valksor.com/docs](https://toolkit.valksor.com/docs)
+Full documentation available at [valksor.com/docs/go-toolkit](https://valksor.com/docs/go-toolkit)
 
 ## Development
 
