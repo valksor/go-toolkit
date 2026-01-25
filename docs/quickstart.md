@@ -189,8 +189,8 @@ func main() {
 
 ## Next Steps
 
-- [Browse all packages](packages/)
-- [Read detailed documentation](packages/)
+- [Browse all packages](README.md#packages)
+- [Read detailed documentation](README.md#packages)
 - [Contributing](legal/contributing.md)
 
 ## Common Use Cases
@@ -238,4 +238,4 @@ minify.ProcessBundles(config)
 
 - [Documentation](README.md)
 - [Report an Issue](https://github.com/valksor/go-toolkit/issues)
-- [Package Documentation](packages/)
+- [Package Documentation](README.md#packages)
