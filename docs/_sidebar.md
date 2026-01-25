@@ -11,6 +11,8 @@
   - [env](packages/env.md)
   - [envconfig](packages/envconfig.md)
   - [errors](packages/errors.md)
+  - [eventbus](packages/eventbus.md)
+  - [jsonrpc](packages/jsonrpc.md)
   - [log](packages/log.md)
   - [minify](packages/minify.md)
   - [output](packages/output.md)
@@ -19,6 +21,7 @@
   - [qtcwrap](packages/qtcwrap.md)
   - [retry](packages/retry.md)
   - [slug](packages/slug.md)
+  - [validate](packages/validate.md)
   - [version](packages/version.md)
 
 - Legal
