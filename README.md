@@ -13,6 +13,9 @@ You're building a Go project and need:
 - CLI helpers (Cobra-based patterns)
 - Terminal display formatting
 - Build utilities (template compilation, asset minification)
+- Event-driven communication between components
+- JSON-RPC 2.0 protocol support for plugins
+- Validation result tracking with severity levels
 - Common utilities (caching, error handling, output processing)
 - Retry logic with exponential backoff
 - URL-safe slug generation
@@ -56,10 +59,13 @@ go get github.com/valksor/go-toolkit
 |---------|-------------|------|
 | **cache** | Thread-safe in-memory TTL cache with automatic expiration | [docs](https://valksor.com/docs/go-toolkit/#/packages/cache) |
 | **errors** | Error handling and wrapping utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/errors) |
+| **eventbus** | Generic pub/sub event system with async publishing | [docs](https://valksor.com/docs/go-toolkit/#/packages/eventbus) |
+| **jsonrpc** | JSON-RPC 2.0 protocol types for plugin communication | [docs](https://valksor.com/docs/go-toolkit/#/packages/jsonrpc) |
 | **output** | Output processing utilities including deduplicating writer | [docs](https://valksor.com/docs/go-toolkit/#/packages/output) |
 | **paths** | File path manipulation utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/paths) |
 | **retry** | Retry operations with exponential backoff and jitter | [docs](https://valksor.com/docs/go-toolkit/#/packages/retry) |
 | **slug** | Convert text to URL-safe slugs | [docs](https://valksor.com/docs/go-toolkit/#/packages/slug) |
+| **validate** | Generic validation result system with severity levels | [docs](https://valksor.com/docs/go-toolkit/#/packages/validate) |
 | **version** | Build version information helpers | [docs](https://valksor.com/docs/go-toolkit/#/packages/version) |
 
 ## Documentation
