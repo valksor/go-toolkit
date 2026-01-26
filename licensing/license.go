@@ -1,4 +1,4 @@
-// Package license provides license information and detection utilities.
+// Package licensing provides license information and detection utilities.
 //
 // It can:
 //   - Return an embedded project license text
@@ -6,7 +6,7 @@
 //
 // The license detection uses github.com/google/go-licenses for accurate
 // SPDX license identification.
-package license
+package licensing
 
 import (
 	"context"
