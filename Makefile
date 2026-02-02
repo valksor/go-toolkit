@@ -1,4 +1,4 @@
-.PHONY: test quality coverage coverage-html tidy deps clean fmt
+.PHONY: test race quality coverage coverage-html tidy deps clean fmt
 
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
@@ -9,6 +9,9 @@ all: test ## Run tests (default target)
 test: ## Run tests with coverage
 	${MAKE} quality
 	go test -v -cover ./...
+
+race: ## Run tests with race detector
+	go test -v -race ./...
 
 coverage: ## Run tests with race detection and coverage profile
 	go test -race -covermode atomic -coverprofile=covprofile ./...

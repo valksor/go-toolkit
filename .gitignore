@@ -9,12 +9,10 @@
 .mcp.json
 .mehrhof/.env
 .wrangler/
-/CLAUDE.md
 build/
 bun.lock
 covprofile
 internal/agent/browser/.mehrhof
 internal/memory/.mehrhof
 node_modules/
-/mehr
 .mehrhof/browser.json
