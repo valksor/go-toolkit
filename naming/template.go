@@ -71,10 +71,35 @@ func ValidatePattern(pattern string) []string {
 	return unknown
 }
 
+// whitespacePattern matches any whitespace character.
+var whitespacePattern = regexp.MustCompile(`\s+`)
+
+// gitInvalidChars matches characters that are invalid in git branch names.
+// Includes: tilde, caret, colon, question mark, asterisk, brackets, backslash, at sign.
+// Note: whitespace is handled separately (replaced with hyphens, not removed).
+var gitInvalidChars = regexp.MustCompile(`[~^:?*\[\]\\@]`)
+
 // CleanBranchName ensures a branch name is valid for git.
-// Removes or replaces invalid characters.
+// Removes or replaces invalid characters including:
+//   - whitespace (replaced with hyphens)
+//   - tilde, caret, colon, question mark, asterisk, brackets, backslash, at sign (removed)
+//   - double dots (collapsed to single dot)
+//   - .lock suffix (removed)
+//
 // Note: Double hyphens (--) are preserved as they're used as separators.
 func CleanBranchName(name string) string {
+	// Replace all whitespace (spaces, tabs, newlines) with hyphens
+	name = whitespacePattern.ReplaceAllString(name, "-")
+
+	// Remove git-invalid characters: ~ ^ : ? * [ ] \ @
+	name = gitInvalidChars.ReplaceAllString(name, "")
+
+	// Replace double dots with single dot (.. is invalid in git refs)
+	name = regexp.MustCompile(`\.{2,}`).ReplaceAllString(name, ".")
+
+	// Remove .lock suffix (reserved by git)
+	name = strings.TrimSuffix(name, ".lock")
+
 	// Replace consecutive slashes
 	name = regexp.MustCompile(`/{2,}`).ReplaceAllString(name, "/")
 
@@ -86,6 +111,9 @@ func CleanBranchName(name string) string {
 
 	// Remove leading slash
 	name = strings.TrimLeft(name, "/")
+
+	// Remove leading/trailing dots (invalid in git refs)
+	name = strings.Trim(name, ".")
 
 	return name
 }

@@ -344,6 +344,7 @@ func TestCleanBranchName(t *testing.T) {
 		input string
 		want  string
 	}{
+		// Existing behavior tests
 		{
 			name:  "valid branch",
 			input: "feature/FEATURE-123--add-auth",
@@ -373,6 +374,118 @@ func TestCleanBranchName(t *testing.T) {
 			name:  "triple hyphens become double",
 			input: "feature/name---test",
 			want:  "feature/name--test",
+		},
+
+		// Space handling
+		{
+			name:  "spaces replaced with hyphens",
+			input: "feature/title with spaces",
+			want:  "feature/title-with-spaces",
+		},
+		{
+			name:  "multiple spaces collapse to single hyphen",
+			input: "task/create   empty   file",
+			want:  "task/create-empty-file",
+		},
+		{
+			name:  "tabs replaced",
+			input: "feature/name\twith\ttabs",
+			want:  "feature/name-with-tabs",
+		},
+
+		// Git-invalid character removal
+		{
+			name:  "tilde removed",
+			input: "feature/name~test",
+			want:  "feature/nametest",
+		},
+		{
+			name:  "caret removed",
+			input: "feature/name^test",
+			want:  "feature/nametest",
+		},
+		{
+			name:  "colon removed",
+			input: "feature/name:test",
+			want:  "feature/nametest",
+		},
+		{
+			name:  "question mark removed",
+			input: "feature/what?",
+			want:  "feature/what",
+		},
+		{
+			name:  "asterisk removed",
+			input: "feature/name*",
+			want:  "feature/name",
+		},
+		{
+			name:  "brackets removed",
+			input: "feature/[test]",
+			want:  "feature/test",
+		},
+		{
+			name:  "backslash removed",
+			input: "feature/path\\name",
+			want:  "feature/pathname",
+		},
+		{
+			name:  "at sign removed",
+			input: "feature/user@domain",
+			want:  "feature/userdomain",
+		},
+
+		// Double dots handling
+		{
+			name:  "double dots collapsed",
+			input: "feature/name..test",
+			want:  "feature/name.test",
+		},
+		{
+			name:  "triple dots collapsed",
+			input: "feature/name...test",
+			want:  "feature/name.test",
+		},
+
+		// Lock suffix handling
+		{
+			name:  "lock suffix removed",
+			input: "feature/name.lock",
+			want:  "feature/name",
+		},
+
+		// Leading/trailing dots
+		{
+			name:  "leading dot removed",
+			input: ".feature/name",
+			want:  "feature/name",
+		},
+		{
+			name:  "trailing dot removed",
+			input: "feature/name.",
+			want:  "feature/name",
+		},
+
+		// Combined scenarios (realistic empty provider cases)
+		{
+			name:  "empty provider with spaces",
+			input: "task/create empty md file in root, random name--create-empty-md-file",
+			want:  "task/create-empty-md-file-in-root,-random-name--create-empty-md-file",
+		},
+		{
+			name:  "title with question",
+			input: "task/What's the bug?--fix-it",
+			want:  "task/What's-the-bug--fix-it",
+		},
+		{
+			name:  "multiple invalid chars",
+			input: "feature/test~name^with:special?chars*and[brackets]",
+			want:  "feature/testnamewithspecialcharsandbrackets",
+		},
+		{
+			name:  "valid JIRA key unchanged",
+			input: "feature/JIRA-123--add-feature",
+			want:  "feature/JIRA-123--add-feature",
 		},
 	}
 
