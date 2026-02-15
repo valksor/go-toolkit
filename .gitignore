@@ -1,5 +1,6 @@
 *.out
 *.test
+*.log
 .active_task
 .backup
 .claude/
@@ -7,12 +8,8 @@
 .junie/
 .local/
 .mcp.json
-.mehrhof/.env
-.wrangler/
 build/
-bun.lock
 covprofile
-internal/agent/browser/.mehrhof
-internal/memory/.mehrhof
 node_modules/
-.mehrhof/browser.json
+
+.wrangler/
