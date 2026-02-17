@@ -6,7 +6,7 @@ Guidance for Claude Code when working with go-toolkit.
 
 ## Project Overview
 
-go-toolkit is a **Go utility library** providing reusable packages for Valksor projects. Each package is focused, independent, and production-ready: configuration, CLI helpers, display formatting, event bus, JSON-RPC, caching, retry, validation, and more.
+go-toolkit is a **Go utility library** providing reusable packages for Valksor projects. Each package is focused, independent, and production-ready: configuration, CLI helpers, display formatting, event bus, caching, retry, validation, and more.
 
 **Key constraint**: All packages must be generic with no project-specific dependencies (no mehrhof, assern, etc.).
 

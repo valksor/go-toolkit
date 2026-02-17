@@ -1,4 +1,4 @@
-# go-toolkit
+# Valksor Toolkit
 
 A collection of Go utilities and packages for Valksor projects.
 
@@ -64,7 +64,6 @@ go get github.com/valksor/go-toolkit
 | **errors** | Error handling and wrapping utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/errors) |
 | **eventbus** | Generic pub/sub event system with async publishing | [docs](https://valksor.com/docs/go-toolkit/#/packages/eventbus) |
 | **history** | Generic JSON-persisted history tracking with auto-pruning | [docs](https://valksor.com/docs/go-toolkit/#/packages/history) |
-| **jsonrpc** | JSON-RPC 2.0 protocol types for plugin communication | [docs](https://valksor.com/docs/go-toolkit/#/packages/jsonrpc) |
 | **naming** | Filename parsing, template expansion, and ticket ID extraction | [docs](https://valksor.com/docs/go-toolkit/#/packages/naming) |
 | **output** | Output processing utilities including deduplicating writer | [docs](https://valksor.com/docs/go-toolkit/#/packages/output) |
 | **paths** | File path manipulation utilities | [docs](https://valksor.com/docs/go-toolkit/#/packages/paths) |

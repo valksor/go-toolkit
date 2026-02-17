@@ -14,7 +14,6 @@
   - [errors](packages/errors.md)
   - [eventbus](packages/eventbus.md)
   - [history](packages/history.md)
-  - [jsonrpc](packages/jsonrpc.md)
   - [log](packages/log.md)
   - [minify](packages/minify.md)
   - [naming](packages/naming.md)
