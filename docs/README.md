@@ -1,4 +1,4 @@
-# Valksor Go Toolkit
+# Toolkit Documentation
 
 A collection of Go utilities and packages for Valksor projects.
 
